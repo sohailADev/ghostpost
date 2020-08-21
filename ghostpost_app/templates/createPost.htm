@@ -1,0 +1,16 @@
+{% include 'navbar.htm' %}
+
+{%if post%}
+
+<h1>This is your secrete ---> <a href="{% url 'detailpost_page' post.s_key %}">{{post.s_key}}</a></h1>
+<a href="{% url 'home_page' %}">Home</a>
+{%else%}
+<div class="">
+    <h1>Create new Post </h1>
+</div>
+<form method="POST" action="">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="submit" />
+</form>
+{%endif%}

@@ -1,0 +1,18 @@
+<div style="border: 1px solid black; padding:10px;">
+    {%if post.isboast == True%}
+    <h3>Boast</h3>
+    {%else %}
+    <h3>Roast</h3>
+    {%endif%}
+
+
+    <h3>{{post.post_body}}</h3>
+
+    <a href="{% url 'upvote_page' post.id  %}">UpVote</a>
+    <a href="{% url 'downvote_page' post.id  %}">DownVote</a>
+
+    <h3>{{post.post_upvote|add:post.post_downvote }}</h3>
+    <h3>{{post.post_upvote|add:post.post_downvote }}</h3>
+    <h3>{{post.date_created}}</h3>
+    <a href="{% url 'deletepost_page' post.id %}">Delete</a>
+</div>

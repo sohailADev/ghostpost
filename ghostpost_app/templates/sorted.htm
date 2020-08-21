@@ -1,8 +1,8 @@
 {% include 'navbar.htm' %}
+<br>
+<h2>Sorted by vote</h2>
 
-<h1>index page</h1>
-
-{%for item in all_post %}
+{%for item in sort_post_by_vote %}
 <div style="border: 1px solid black; padding:10px;">
     {%if item.isboast == True%}
     <h3>Boast</h3>
@@ -13,10 +13,12 @@
 
     <h3>{{item.post_body}}</h3>
 
-    <a href="{% url 'upvote_page' item.id  %}">UpVote</a>
-    <a href="{% url 'downvote_page' item.id  %}">DownVote</a>
 
-    <h3>{{item.total}}</h3>
+    <a href="{% url 'upvote_page' item.id  %}">UpVote</a>{{item.post_upvote}}
+    <a href="{% url 'downvote_page' item.id  %}">DownVote</a>{{item.post_downvote}}
+
+
+    <h3>{{item.total }}</h3>
 
     <h3>{{item.date_created}}</h3>
 </div>

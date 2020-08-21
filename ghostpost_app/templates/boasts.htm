@@ -1,13 +1,16 @@
 {% include 'navbar.htm' %}
 
-<h1>index page</h1>
+<div class="">
+    <h1>Boasts </h1>
+</div>
 
-{%for item in all_post %}
+
+{%for item in all_boasts %}
 <div style="border: 1px solid black; padding:10px;">
     {%if item.isboast == True%}
     <h3>Boast</h3>
     {%else %}
-    <h3>Roast</h3>
+    <h3>roast</h3>
     {%endif%}
 
 
@@ -17,7 +20,6 @@
     <a href="{% url 'downvote_page' item.id  %}">DownVote</a>
 
     <h3>{{item.total}}</h3>
-
     <h3>{{item.date_created}}</h3>
 </div>
 {%endfor %}
